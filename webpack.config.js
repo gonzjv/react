@@ -22,7 +22,7 @@ module.exports = ({ develop }) => ({
   mode: develop ? 'development' : 'production',
   devtool: develop ? 'inline-source-map' : false,
   entry: {
-    app: './src/index.ts',
+    app: './src/index.tsx',
   },
   output: {
     filename: '[name].[contenthash].js',
@@ -32,7 +32,12 @@ module.exports = ({ develop }) => ({
   module: {
     rules: [
       {
-        test: /\.[tj]s$/,
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        loader: require.resolve('babel-loader'),
+      },
+      {
+        test: /\.[tj]s(x?)$/,
         use: 'ts-loader',
         exclude: /node_modules/,
       },
@@ -50,12 +55,17 @@ module.exports = ({ develop }) => ({
       },
       {
         test: /\.s[ac]ss$/i,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'sass-loader',
+        ],
       },
     ],
   },
   resolve: {
-    extensions: ['.ts', '.js'],
+    modules: [__dirname, 'src', 'node_modules'],
+    extensions: ['*', '.ts', '.js', '.tsx', 'jsx'],
   },
   plugins: [
     new HtmlWebpackPlugin({
