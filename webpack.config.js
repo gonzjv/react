@@ -17,7 +17,9 @@ const devServer = (isDev) =>
         },
       };
 const esLintPlugin = (isDev) =>
-  isDev ? [] : [new ESLintPlugin({ extensions: ['ts', 'js'] })];
+  isDev
+    ? []
+    : [new ESLintPlugin({ extensions: ['ts', 'tsx', 'js'] })];
 module.exports = ({ develop }) => ({
   mode: develop ? 'development' : 'production',
   devtool: develop ? 'inline-source-map' : false,
@@ -31,11 +33,11 @@ module.exports = ({ develop }) => ({
   },
   module: {
     rules: [
-      {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        loader: require.resolve('babel-loader'),
-      },
+      // {
+      //   test: /\.jsx?$/,
+      //   exclude: /node_modules/,
+      //   loader: require.resolve('babel-loader'),
+      // },
       {
         test: /\.[tj]s(x?)$/,
         use: 'ts-loader',
@@ -66,6 +68,7 @@ module.exports = ({ develop }) => ({
   resolve: {
     modules: [__dirname, 'src', 'node_modules'],
     extensions: ['*', '.ts', '.js', '.tsx', 'jsx'],
+    // extensions: ['.ts', '.tsx'],
   },
   plugins: [
     new HtmlWebpackPlugin({
