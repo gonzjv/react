@@ -8,13 +8,24 @@ interface MyProps {
   imageUrl: string;
 }
 
-const Card = (props: MyProps): JSX.Element => (
+const Card = ({
+  name,
+  year,
+  PS,
+  imageUrl,
+}: MyProps): JSX.Element => (
   <>
     <div className="card">
-      <img className="img" src={props.imageUrl} alt="" />
-      <p>{props.name}</p>
-      <p>Year: {props.year}</p>
-      <p>PS: {props.PS}</p>
+      <img className="img" src={imageUrl} alt="" />
+      <p>{name}</p>
+      <p>
+        Year:
+        {year}
+      </p>
+      <p>
+        PS:
+        {PS}
+      </p>
     </div>
   </>
 );

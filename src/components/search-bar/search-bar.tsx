@@ -5,12 +5,14 @@ interface MyProps {
   placeholder: string;
 }
 
-const SearchBar = (props: MyProps): JSX.Element => (
+const SearchBar = ({
+  placeholder,
+}: MyProps): JSX.Element => (
   <input
     className="search-bar"
     type="text"
     name="input"
-    placeholder={props.placeholder}
+    placeholder={placeholder}
   />
 );
 export default SearchBar;

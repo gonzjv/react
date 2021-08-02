@@ -18,8 +18,18 @@ const Cards = (): JSX.Element => {
       PS: 62,
       url: ducatiUrl,
     },
-    { name: 'BMW E21', year: 1976, PS: 109, url: bmwUrl },
-    { name: 'Mercedes Benz C123', year: 1982, PS: 136, url: mercUrl },
+    {
+      name: 'BMW E21',
+      year: 1976,
+      PS: 109,
+      url: bmwUrl,
+    },
+    {
+      name: 'Mercedes Benz C123',
+      year: 1982,
+      PS: 136,
+      url: mercUrl,
+    },
     {
       name: 'Harley Davidson 63 FL',
       year: 1963,
