@@ -1,0 +1,6 @@
+@import url(https://fonts.googleapis.com/css2?family=Roboto&display=swap);
+.card{width:30%;box-shadow:10px 5px 5px rgba(135,206,250,.3)}.img{width:100%;object-fit:contain}
+.cards{width:90%;height:40%;display:flex;gap:20px;flex-wrap:wrap;margin-top:3%}
+.search-bar{width:30%;height:3vh;border:solid 2px #add8e6;border-radius:10px;text-indent:3%}
+.app{width:100%;height:100%;display:flex;flex-direction:column;align-items:center}
+*{margin:0;padding:0}html{font-size:20px}body{height:100vh;width:100vw;color:#20b2aa;background-color:#fff}body.notScrollable{overflow:hidden}
