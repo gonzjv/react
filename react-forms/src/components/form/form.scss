@@ -1,0 +1,16 @@
+.form {
+  width: 30%;
+  height: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  border: lightblue 2px solid;
+}
+.sendButton {
+  width: 70%;
+  background-color: lightblue;
+  border: lightblue solid 1px;
+  color: white;
+}
