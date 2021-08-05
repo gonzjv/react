@@ -3,13 +3,18 @@ import './input-checkbox.scss';
 
 interface MyProps {
   onChange: Function;
+  errorsAgree: boolean;
 }
 
 const InputCheckbox = ({
   onChange,
+  errorsAgree,
 }: MyProps): JSX.Element => (
   <label htmlFor="agree">
-    Of course, you agree :
+    <p>
+      Of course, you agree :
+      {errorsAgree && <span> * you must be agree</span>}
+    </p>
     <input
       type="checkbox"
       name="agree"
