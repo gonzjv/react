@@ -17,8 +17,6 @@ const Form = ({ setFormValues }: MyProps): JSX.Element => {
   const [agree, setAgree] = useState(false);
   const [errors, setErrors] = useState({});
 
-  const initailRender = useRef(true);
-
   useEffect(() => {
     validate();
   }, [bike, agree, prodDate, bikeColor]);
@@ -44,8 +42,15 @@ const Form = ({ setFormValues }: MyProps): JSX.Element => {
         ...state,
         { bike, prodDate, bikeColor, agree },
       ]);
-    } else {
     }
+    reset();
+  };
+
+  const reset = () => {
+    setBike('');
+    setProdDate('');
+    setColor('');
+    setAgree(false);
   };
   return (
     <form className="form" onSubmit={handleSubmit}>
@@ -67,12 +72,6 @@ const Form = ({ setFormValues }: MyProps): JSX.Element => {
             : false
         }
       />
-      {/* <Input
-        type="date"
-        name="Production date"
-        value={prodDate}
-        onChange={setProdDate}
-      /> */}
       <Select
         name="Color"
         value={bikeColor}
