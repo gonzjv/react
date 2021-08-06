@@ -5,7 +5,7 @@ import Card from './card/card';
 
 const App = (): JSX.Element => {
   const [formValues, SetFormValues] = useState([]);
-  console.log('formValues: ', formValues);
+  // console.log('formValues: ', formValues);
   return (
     <div className="app">
       <div>

@@ -10,16 +10,18 @@ const InputCheckbox = ({
   onChange,
   errorsAgree,
 }: MyProps): JSX.Element => (
-  <label htmlFor="agree">
-    <p>
-      Of course, you agree :
-      {errorsAgree && <span> * you must be agree</span>}
-    </p>
+  <label className="agree-elem" htmlFor="agree">
+    <p>Of course, you agree : </p>
     <input
       type="checkbox"
       name="agree"
       onChange={() => onChange((prev: boolean) => !prev)}
     />
+    {errorsAgree && (
+      <span className="valid-message">
+        * you must be agree
+      </span>
+    )}
   </label>
 );
 export default InputCheckbox;

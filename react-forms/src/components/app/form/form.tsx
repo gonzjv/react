@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Input from '../../_library/input/input';
 import Select from '../../_library/select/select';
 import './form.scss';
+import InputBike from './input-bike/input-bike';
 import InputCheckbox from './input-checkbox/input-checkbox';
+import InputDate from './input_date/input-date';
 
 interface MyProps {
   setFormValues: Function;
@@ -15,15 +17,24 @@ const Form = ({ setFormValues }: MyProps): JSX.Element => {
   const [agree, setAgree] = useState(false);
   const [errors, setErrors] = useState({});
 
+  const initailRender = useRef(true);
+
   useEffect(() => {
     validate();
-  }, [agree, bike]);
+  }, [bike, agree, prodDate, bikeColor]);
 
   const validate = () => {
     setErrors({});
     if (!agree) {
       setErrors((state) => ({ ...state, agree }));
     }
+    if (bike === '') {
+      setErrors((state) => ({ ...state, bike }));
+    }
+    if (prodDate === '') {
+      setErrors((state) => ({ ...state, prodDate }));
+    }
+    console.log('errors: ', errors);
   };
 
   const handleSubmit = (event: React.FormEvent) => {
@@ -33,24 +44,35 @@ const Form = ({ setFormValues }: MyProps): JSX.Element => {
         ...state,
         { bike, prodDate, bikeColor, agree },
       ]);
+    } else {
     }
-
-    // console.log('Bike: ', bike);
   };
   return (
     <form className="form" onSubmit={handleSubmit}>
-      <Input
-        type="text"
-        name="Bike"
+      <InputBike
         value={bike}
         onChange={setBike}
+        errorsBike={
+          Object.keys(errors).includes('bike')
+            ? true
+            : false
+        }
       />
-      <Input
+      <InputDate
+        value={prodDate}
+        onChange={setProdDate}
+        errorsDate={
+          Object.keys(errors).includes('prodDate')
+            ? true
+            : false
+        }
+      />
+      {/* <Input
         type="date"
         name="Production date"
         value={prodDate}
         onChange={setProdDate}
-      />
+      /> */}
       <Select
         name="Color"
         value={bikeColor}
@@ -59,10 +81,14 @@ const Form = ({ setFormValues }: MyProps): JSX.Element => {
       />
       <InputCheckbox
         onChange={setAgree}
-        errorsAgree={agree ? false : true}
+        errorsAgree={
+          Object.keys(errors).includes('agree')
+            ? true
+            : false
+        }
       />
       <input
-        disabled={agree ? false : true}
+        // disabled={agree ? false : true}
         className="sendButton"
         type="submit"
         value="Give it to T-800"

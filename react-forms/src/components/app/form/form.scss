@@ -10,7 +10,19 @@
 }
 .sendButton {
   width: 70%;
+  height: 15%;
   background-color: lightblue;
   border: lightblue solid 1px;
   color: white;
+
+  font-size: 20px;
+  &:hover {
+    background-color: skyblue;
+    border: skyblue solid 1px;
+  }
+  &:active {
+    background-color: lemonchiffon;
+    border: lemonchiffon solid 1px;
+    color: skyblue;
+  }
 }

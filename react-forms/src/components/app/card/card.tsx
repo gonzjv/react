@@ -12,7 +12,10 @@ interface MyProps {
 const Card = ({ elem }: MyProps): JSX.Element => (
   <>
     <div className="card">
-      <p>{elem.bike}</p>
+      <p>
+        Bike:
+        {elem.bike}
+      </p>
       <p>
         Production date:
         {elem.prodDate}
