@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
-import Input from '../../_library/input/input';
 import Select from '../../_library/select/select';
 import './form.scss';
 import InputBike from './input-bike/input-bike';
 import InputCheckbox from './input-checkbox/input-checkbox';
+import InputSwitcher from './input-switcher/input-switcher';
 import InputDate from './input_date/input-date';
 
 interface MyProps {
@@ -15,6 +15,7 @@ const Form = ({ setFormValues }: MyProps): JSX.Element => {
   const [prodDate, setProdDate] = useState('');
   const [bikeColor, setColor] = useState('');
   const [agree, setAgree] = useState(false);
+  const [returnAfter, setReturnAfter] = useState(false);
   const [errors, setErrors] = useState({});
 
   useEffect(() => {
@@ -40,7 +41,7 @@ const Form = ({ setFormValues }: MyProps): JSX.Element => {
     if (Object.keys(errors).length === 0) {
       setFormValues((state: []) => [
         ...state,
-        { bike, prodDate, bikeColor, agree },
+        { bike, prodDate, bikeColor, agree, returnAfter },
       ]);
     }
     reset();
@@ -80,12 +81,28 @@ const Form = ({ setFormValues }: MyProps): JSX.Element => {
       />
       <InputCheckbox
         onChange={setAgree}
+        agree={agree}
         errorsAgree={
           Object.keys(errors).includes('agree')
             ? true
             : false
         }
       />
+      <InputSwitcher
+        onChange={setReturnAfter}
+        returnAfter={returnAfter}
+      />
+      {/* <input
+        className="switcher__input"
+        type="checkbox"
+        name="watched"
+        id="switcher"
+      />
+      <label className="switcher__label" htmlFor="switcher">
+        <span className="switcher__text">
+          Return after use
+        </span>
+      </label> */}
       <input
         // disabled={agree ? false : true}
         className="sendButton"

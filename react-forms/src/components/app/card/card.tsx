@@ -6,6 +6,7 @@ interface MyProps {
     bike: string;
     prodDate: string;
     bikeColor: string;
+    returnAfter: boolean;
   };
 }
 
@@ -23,6 +24,10 @@ const Card = ({ elem }: MyProps): JSX.Element => (
       <p>
         Color:
         {elem.bikeColor}
+      </p>
+      <p>
+        Return after use`:
+        {elem.returnAfter}
       </p>
     </div>
   </>
