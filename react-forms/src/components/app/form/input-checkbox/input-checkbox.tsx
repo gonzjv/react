@@ -22,7 +22,7 @@ const InputCheckbox = ({
     />
     {errorsAgree && (
       <span className="valid-message">
-        * you must be agree
+        * box is waiting for your touch...
       </span>
     )}
   </label>

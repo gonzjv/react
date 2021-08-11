@@ -17,7 +17,7 @@ const InputDate = ({
       Production date:
       {errorsDate && (
         <span className="valid-message">
-          * you must choose the date
+          * choose the date, mann!
         </span>
       )}
     </p>

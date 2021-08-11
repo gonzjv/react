@@ -10,10 +10,7 @@ const App = (): JSX.Element => {
     <div className="app">
       <div>
         <h3> Electricity discharged sphere...</h3>
-        <h3>
-          &quot;I need your bike, clothes, personal
-          data.&quot;
-        </h3>
+        <h3>&quot;I need your bike, clothes.&quot;</h3>
       </div>
       <Form setFormValues={SetFormValues} />
       <h4>

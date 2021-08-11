@@ -25,10 +25,9 @@ const Card = ({ elem }: MyProps): JSX.Element => (
         Color:
         {elem.bikeColor}
       </p>
-      <p>
-        Return after use`:
-        {elem.returnAfter}
-      </p>
+      {elem.returnAfter && (
+        <p className="return">Return after use</p>
+      )}
     </div>
   </>
 );
