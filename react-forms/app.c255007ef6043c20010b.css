@@ -1,0 +1,10 @@
+@import url(https://fonts.googleapis.com/css2?family=Roboto&display=swap);
+
+.form{width:50%;height:40%;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:20px;border:#add8e6 2px solid}.sendButton{width:70%;height:15%;background-color:#add8e6;border:#add8e6 solid 1px;color:#fff;font-size:20px}.sendButton:hover{background-color:skyblue;border:skyblue solid 1px}.sendButton:active{background-color:#fffacd;border:#fffacd solid 1px;color:skyblue}body{margin:0;font-family:Arial,sans-serif;font-size:16px}
+
+.valid-message{color:red}.agree-elem{display:flex;gap:5px}
+.switcher__input{display:none}.switcher__input:checked+.switcher__label{color:#add8e6}.switcher__input:checked+.switcher__label:before{background-color:#add8e6}.switcher__input:checked+.switcher__label:after{transform:translateX(23px)}.switcher__input:checked+.switcher__label:active:before{background-color:#b4effa}.switcher__input:checked+.switcher__label:active:after{transform:translateX(12px)}.switcher__label{display:inline-block;vertical-align:top;padding-left:50px;font-size:14px;color:#ccc;cursor:pointer;position:relative;transition:color .1s linear}.switcher__label::before{content:"";display:block;width:45px;height:22px;background-color:#ccc;border-radius:10px;position:absolute;top:0;left:0;z-index:1;transition:background-color .1s linear}.switcher__label::after{content:"";display:block;width:20px;height:20px;background-color:#fff;border-radius:50%;position:absolute;top:1px;left:1px;z-index:2;transition:transform .1s linear}.switcher__label:active::after{transform:translateX(12px)}.switcher__label:active::before{background-color:#b4effa}.switcher__text{line-height:22px}
+
+.app{width:100%;height:100%;display:flex;flex-direction:column;justify-content:center;gap:30px;align-items:center}
+.card{width:30%;height:20%;background-color:#fffacd}.return{color:#556b2f}
+*{margin:0;padding:0}html{font-size:20px}#rootNode{height:100vh;width:100vw;color:#add8e6;background-color:#fff}#rootNode.notScrollable{overflow:hidden}
