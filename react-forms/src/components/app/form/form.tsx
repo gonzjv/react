@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Select from '../../_library/select/select';
 import './form.scss';
 import InputBike from './input-bike/input-bike';
@@ -18,10 +18,6 @@ const Form = ({ setFormValues }: MyProps): JSX.Element => {
   const [returnAfter, setReturnAfter] = useState(false);
   const [errors, setErrors] = useState({});
 
-  useEffect(() => {
-    validate();
-  }, [bike, agree, prodDate, bikeColor]);
-
   const validate = () => {
     setErrors({});
     if (!agree) {
@@ -33,19 +29,12 @@ const Form = ({ setFormValues }: MyProps): JSX.Element => {
     if (prodDate === '') {
       setErrors((state) => ({ ...state, prodDate }));
     }
-    console.log('errors: ', errors);
+    // console.log('errors: ', errors);
   };
 
-  const handleSubmit = (event: React.FormEvent) => {
-    event.preventDefault();
-    if (Object.keys(errors).length === 0) {
-      setFormValues((state: []) => [
-        ...state,
-        { bike, prodDate, bikeColor, agree, returnAfter },
-      ]);
-    }
-    reset();
-  };
+  useEffect(() => {
+    validate();
+  }, [bike, agree, prodDate, bikeColor]);
 
   const reset = () => {
     setBike('');
@@ -53,24 +42,38 @@ const Form = ({ setFormValues }: MyProps): JSX.Element => {
     setColor('');
     setAgree(false);
   };
+
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    if (Object.keys(errors).length === 0) {
+      setFormValues((state: []) => [
+        ...state,
+        {
+          bike,
+          prodDate,
+          bikeColor,
+          agree,
+          returnAfter,
+        },
+      ]);
+    }
+    reset();
+  };
+
   return (
     <form className="form" onSubmit={handleSubmit}>
       <InputBike
         value={bike}
         onChange={setBike}
         errorsBike={
-          Object.keys(errors).includes('bike')
-            ? true
-            : false
+          Object.keys(errors).includes('bike') && true
         }
       />
       <InputDate
         value={prodDate}
         onChange={setProdDate}
         errorsDate={
-          Object.keys(errors).includes('prodDate')
-            ? true
-            : false
+          Object.keys(errors).includes('prodDate') && true
         }
       />
       <Select
@@ -83,26 +86,13 @@ const Form = ({ setFormValues }: MyProps): JSX.Element => {
         onChange={setAgree}
         agree={agree}
         errorsAgree={
-          Object.keys(errors).includes('agree')
-            ? true
-            : false
+          Object.keys(errors).includes('agree') && true
         }
       />
       <InputSwitcher
         onChange={setReturnAfter}
         returnAfter={returnAfter}
       />
-      {/* <input
-        className="switcher__input"
-        type="checkbox"
-        name="watched"
-        id="switcher"
-      />
-      <label className="switcher__label" htmlFor="switcher">
-        <span className="switcher__text">
-          Return after use
-        </span>
-      </label> */}
       <input
         // disabled={agree ? false : true}
         className="sendButton"

@@ -11,28 +11,21 @@ const InputSwitcher = ({
   returnAfter,
 }: MyProps): JSX.Element => (
   <>
-    <input
-      className="switcher__input"
-      type="checkbox"
-      name="return"
-      id="switcher"
-      checked={returnAfter}
-      onChange={() => onChange((prev: boolean) => !prev)}
-    />
-    <label className="switcher__label" htmlFor="switcher">
-      <span className="switcher__text">
-        Return after use
-      </span>
+    <label htmlFor="switcher">
+      <input
+        className="switcher__input"
+        type="checkbox"
+        // name="switcher"
+        id="switcher"
+        checked={returnAfter}
+        onChange={() => onChange((prev: boolean) => !prev)}
+      />
+      <div className="switcher__label">
+        <span className="switcher__text">
+          Return after use
+        </span>
+      </div>
     </label>
   </>
-  //   <label className="return-elem" htmlFor="agree">
-  //     <p>Of course, you agree : </p>
-  //     <input
-  //       type="checkbox"
-  //       name="agree"
-  //       checked={returnAfter}
-  //       onChange={() => onChange((prev: boolean) => !prev)}
-  //     />
-  //   </label>
 );
 export default InputSwitcher;

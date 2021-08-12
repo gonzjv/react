@@ -17,9 +17,9 @@ const App = (): JSX.Element => {
         &quot;Bad to the Bone – performed by George
         Thorogood & the Destroyers&quot;
       </h4>
-      {formValues.map((elem, id) => {
-        return <Card elem={elem} key={id} />;
-      })}
+      {formValues.map((elem) => (
+        <Card elem={elem} key={elem} />
+      ))}
     </div>
   );
 };

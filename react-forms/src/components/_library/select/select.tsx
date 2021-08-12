@@ -15,14 +15,14 @@ const Select = ({
   onChange,
 }: MyProps): JSX.Element => (
   <label htmlFor={name}>
-    {name}:
+    {name}
     <select
       name={name}
       value={value}
       onChange={(event) => onChange(event.target.value)}
     >
-      {options.map((elem, id) => (
-        <option key={id}>{elem}</option>
+      {options.map((elem) => (
+        <option key={elem}>{elem}</option>
       ))}
     </select>
   </label>
