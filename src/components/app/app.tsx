@@ -18,13 +18,15 @@ const App = (): JSX.Element => {
     try {
       const axiosResponse: AxiosResponse<get200_photos> =
         await axiosInstance.get(
-          `?method=flickr.photos.search&api_key=38df490aac0e0efee1d8819ba647ebba&tags=${searchValue}&per_page=5&format=json&nojsoncallback=1`,
+          `?method=flickr.photos.search&api_key=38df490aac0e0efee1d8819ba647ebba&tags=${searchValue}&sort=date-taken-desc&per_page=20&format=json&nojsoncallback=1`,
         );
       setPhotos(axiosResponse.data.photos.photo);
       console.log(axiosResponse.data.photos);
       // console.log('photos: ', photos);
     } catch (err) {
       console.log(err);
+    } finally {
+      setIsLoading(false);
     }
   };
 
