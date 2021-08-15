@@ -1,0 +1,7 @@
+@import url(https://fonts.googleapis.com/css2?family=Roboto&display=swap);
+.app{width:100%;height:100%;display:flex;flex-direction:column;justify-content:center;gap:10px;align-items:center}.search-form{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;height:10vh}.search-field{display:flex;align-items:center;gap:20px}.search-field button{width:70%;background-color:#add8e6;border:#add8e6 solid 1px;color:#fff;font-size:20px}.search-field button:hover{background-color:skyblue;border:skyblue solid 1px}.search-field button:active{background-color:#fffacd;border:#fffacd solid 1px;color:skyblue}.search-label{display:flex;align-items:center}.params{display:flex;align-items:center;justify-content:center;gap:20px}
+.photos{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px;list-style:none}.photo-elem{border:1px solid #9acd32}
+
+
+.page{display:flex;align-items:center;gap:5px;width:30%}.page .input{width:10%}.page .pages{color:#000;font-size:medium}
+*{margin:0;padding:0}html{font-size:20px}#rootNode{width:100vw;color:#add8e6;background-color:#fff}#rootNode.notScrollable{overflow:hidden}
