@@ -10,14 +10,11 @@ interface MyProps {
   onChange: Function;
 }
 
-const Sorting = ({
-  value,
-  options,
-  onChange,
-}: MyProps): JSX.Element => (
-  <label>
+const Sorting = ({ value, options, onChange }: MyProps): JSX.Element => (
+  <label htmlFor="sorting">
     Sorting:
     <select
+      id="sorting"
       name="sorting"
       value={value}
       onChange={(event) => onChange(event.target.value)}

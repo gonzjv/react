@@ -7,15 +7,12 @@ interface MyProps {
   onChange: Function;
 }
 
-const SelectPerPage = ({
-  value,
-  options,
-  onChange,
-}: MyProps): JSX.Element => (
-  <label>
+const SelectPerPage = ({ value, options, onChange }: MyProps): JSX.Element => (
+  <label htmlFor="per-page">
     Results per page:
     <select
       name="per-page"
+      id="per-page"
       value={value}
       onChange={(event) => onChange(event.target.value)}
     >

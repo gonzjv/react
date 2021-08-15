@@ -22,13 +22,14 @@ const App = (): JSX.Element => {
     setIsLoading(true);
     try {
       const axiosResponse: AxiosResponse<get200_photos> = await axiosInstance.get(
-        `?method=flickr.photos.search&api_key=38df490aac0e0efee1d8819ba647ebba&tags=${searchValue}&sort=${sortType}&per_page=${perPage}&page=${pageNumber}&format=json&nojsoncallback=1`,
+        `?method=flickr.photos.search&api_key=38df490aac0e0efee1d8819ba647ebba&tags=
+        ${searchValue}&sort=${sortType}&per_page=${perPage}&page=${pageNumber}&format=json&nojsoncallback=1`,
       );
       setPhotos(axiosResponse.data.photos.photo);
       setPages(axiosResponse.data.photos.pages);
       // console.log('photos: ', photos);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     } finally {
       setIsLoading(false);
     }
@@ -81,7 +82,11 @@ const App = (): JSX.Element => {
             options={['5', '10', '20', '50']}
             onChange={setPerPage}
           />
-          <InputPage value={pageNumber} onChange={setPageNumber} pages={pages} />
+          <InputPage
+            value={pageNumber}
+            onChange={setPageNumber}
+            pages={pages}
+          />
         </div>
       </form>
       <Photos photos={photos} />
