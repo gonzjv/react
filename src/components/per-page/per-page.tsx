@@ -1,30 +1,30 @@
 import React from 'react';
-import './select.scss';
+import './per-page.scss';
 
 interface MyProps {
-  name: string;
   value: string;
   options: string[];
   onChange: Function;
 }
 
-const Select = ({
-  name,
+const SelectPerPage = ({
   value,
   options,
   onChange,
 }: MyProps): JSX.Element => (
-  <label htmlFor={name}>
-    {name}
+  <label>
+    Results per page:
     <select
-      name={name}
+      name="per-page"
       value={value}
       onChange={(event) => onChange(event.target.value)}
     >
       {options.map((elem) => (
-        <option key={elem}>{elem}</option>
+        <option value={elem} key={elem}>
+          {elem}
+        </option>
       ))}
     </select>
   </label>
 );
-export default Select;
+export default SelectPerPage;

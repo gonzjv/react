@@ -1,6 +1,6 @@
 import React from 'react';
 import { FC } from 'react';
-import { Photo } from '../../../types';
+import { Photo } from '../../types';
 import './photos.scss';
 
 export const Photos: FC<{ photos: Photo[] }> = ({
