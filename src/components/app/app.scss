@@ -4,48 +4,12 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 10px;
+  gap: 40px;
   align-items: center;
-}
-.search-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  height: 10vh;
-}
-.search-field {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  // height: 30%;
-  button {
-    width: 70%;
-    // height: 15%;
-    background-color: lightblue;
-    border: lightblue solid 1px;
-    color: white;
-
-    font-size: 20px;
-    &:hover {
-      background-color: skyblue;
-      border: skyblue solid 1px;
-    }
-    &:active {
-      background-color: lemonchiffon;
-      border: lemonchiffon solid 1px;
-      color: skyblue;
-    }
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70vw;
   }
-}
-.search-label {
-  display: flex;
-  align-items: center;
-}
-.params {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
 }
