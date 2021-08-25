@@ -14,12 +14,11 @@ const devServer = (isDev) =>
           hot: true,
           port: 8080,
           contentBase: path.join(__dirname, 'public'),
+          historyApiFallback: true,
         },
       };
 const esLintPlugin = (isDev) =>
-  isDev
-    ? []
-    : [new ESLintPlugin({ extensions: ['ts', 'tsx', 'js'] })];
+  isDev ? [] : [new ESLintPlugin({ extensions: ['ts', 'tsx', 'js'] })];
 module.exports = ({ develop }) => ({
   mode: develop ? 'development' : 'production',
   devtool: develop ? 'inline-source-map' : false,
@@ -30,6 +29,7 @@ module.exports = ({ develop }) => ({
     filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, 'dist'),
     assetModuleFilename: 'assets/[hash][ext]',
+    publicPath: '/',
   },
   module: {
     rules: [
@@ -57,11 +57,7 @@ module.exports = ({ develop }) => ({
       },
       {
         test: /\.s[ac]ss$/i,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          'sass-loader',
-        ],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
     ],
   },

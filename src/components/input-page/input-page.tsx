@@ -8,7 +8,7 @@ interface MyProps {
 }
 
 const InputPage = ({ value, onChange, pages }: MyProps): JSX.Element => (
-  <label className="page" htmlFor="page">
+  <label className="input-page" htmlFor="page">
     Page:
     <input
       className="input"
