@@ -14,14 +14,10 @@ import NotFound from '../not-found/not-found';
 import Content from '../content/content';
 
 const App = (): JSX.Element => {
-  // const location = useLocation();
-
   return (
     <Router>
       <Header />
-      <div className="app">
-        <Content />
-      </div>
+      <Content />
     </Router>
   );
 };

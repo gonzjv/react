@@ -1,6 +1,6 @@
 import React from 'react';
-// import { Photo } from '../../types';
 import './photos.scss';
+import { NavLink } from 'react-router-dom';
 
 interface Myprops {
   photos: {
@@ -14,13 +14,7 @@ interface Myprops {
 
 export const Photos = ({ photos }: Myprops) => (
   <ul className="photos">
-    {photos.map(({
-      id,
-      owner,
-      secret,
-      title,
-      server,
-    }) => (
+    {photos.map(({ id, owner, secret, title, server }) => (
       <li className="photo-elem" key={id}>
         <p>
           Title:
@@ -34,10 +28,16 @@ export const Photos = ({ photos }: Myprops) => (
           ID:
           {id}
         </p>
-        <img
-          src={`https://live.staticflickr.com/${server}/${id}_${secret}_w.jpg`}
-          alt=""
-        />
+        <NavLink
+          to={`/details/${server}/${id}/${secret}`}
+          exact
+          activeClassName="active"
+        >
+          <img
+            src={`https://live.staticflickr.com/${server}/${id}_${secret}_w.jpg`}
+            alt=""
+          />
+        </NavLink>
       </li>
     ))}
   </ul>
