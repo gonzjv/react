@@ -1,8 +1,8 @@
-import React, { EffectCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './details.scss';
-import { NavLink, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { AxiosResponse } from 'axios';
-import { get200_photo, get200_photos, Photo } from '../../types';
+import { get200_photo } from '../../types';
 import axiosInstance from '../../service/api';
 
 interface Params {
@@ -40,10 +40,9 @@ export const Details = (): JSX.Element => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const axiosResponse: AxiosResponse<get200_photo> =
-          await axiosInstance.get(
-            `?method=flickr.photos.getInfo&api_key=38df490aac0e0efee1d8819ba647ebba&photo_id=${id}&format=json&nojsoncallback=1`,
-          );
+        const axiosResponse: AxiosResponse<get200_photo> = await axiosInstance.get(
+          `?method=flickr.photos.getInfo&api_key=38df490aac0e0efee1d8819ba647ebba&photo_id=${id}&format=json&nojsoncallback=1`,
+        );
         setPhotoInfo(axiosResponse.data.photo);
       } catch (err) {
         // console.log(err);

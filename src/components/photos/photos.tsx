@@ -14,7 +14,13 @@ interface Myprops {
 
 export const Photos = ({ photos }: Myprops) => (
   <ul className="photos">
-    {photos.map(({ id, owner, secret, title, server }) => (
+    {photos.map(({
+      id,
+      owner,
+      secret,
+      title,
+      server,
+    }) => (
       <li className="photo-elem" key={id}>
         <p>
           Title:
