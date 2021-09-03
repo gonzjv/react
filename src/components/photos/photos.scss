@@ -1,0 +1,12 @@
+.photos {
+  display: flex;
+  // flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  list-style: none;
+}
+.photo-elem {
+  border: 1px solid yellowgreen;
+}
