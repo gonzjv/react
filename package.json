@@ -1,5 +1,6 @@
 {
   "name": "webpack-demo",
+  "homepage": "https://gonzjv.github.io/react/react-routing/",
   "scripts": {
     "build": "webpack",
     "dev": "webpack serve --env develop",

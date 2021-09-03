@@ -29,7 +29,7 @@ module.exports = ({ develop }) => ({
     filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, 'dist'),
     assetModuleFilename: 'assets/[hash][ext]',
-    publicPath: '/',
+    publicPath: '/react/react-routing',
   },
   module: {
     rules: [

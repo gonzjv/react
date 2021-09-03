@@ -35,7 +35,7 @@ export const Photos = ({ photos }: Myprops) => (
           {id}
         </p>
         <NavLink
-          to={`/details/${server}/${id}/${secret}`}
+          to={`/react/react-routing/details/${server}/${id}/${secret}`}
           exact
           activeClassName="active"
         >

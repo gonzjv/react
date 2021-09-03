@@ -14,13 +14,13 @@ const Content = (): JSX.Element => {
     <TransitionGroup className="content">
       <CSSTransition timeout={300} classNames="page" key={location.key}>
         <Switch location={location}>
-          <Route exact path="/">
+          <Route exact path="/react/react-routing">
             <Home />
           </Route>
-          <Route exact path="/about">
+          <Route exact path="/react/react-routing/about">
             <About />
           </Route>
-          <Route exact path="/details/:server/:id/:secret">
+          <Route exact path="/react/react-routing/details/:server/:id/:secret">
             <Details />
           </Route>
           <Route path="*">

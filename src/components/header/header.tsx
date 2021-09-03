@@ -8,12 +8,12 @@ const Header = (): JSX.Element => (
     <nav className="nav">
       <ul>
         <li>
-          <NavLink to="/" exact activeClassName="active">
+          <NavLink to="/react/react-routing" exact activeClassName="active">
             Home
           </NavLink>
         </li>
         <li>
-          <NavLink to="/about" activeClassName="active">
+          <NavLink to="/react/react-routing/about" activeClassName="active">
             About
           </NavLink>
         </li>
